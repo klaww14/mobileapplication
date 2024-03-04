@@ -34,7 +34,7 @@ and personalised financial records.]
 3. [Implementation of security in user accounts.]
 
 ## Application Description:
-[The goal of the mobile banking app MobileBank Pro is to provide consumers total control over their finances. 
+[The goal of the mobile banking app AlbBank is to provide clients/users total control over their finances. 
 It provides a safe and easy-to-use platform for tracking transactions in real time, 
 managing accounts, and creating budgets. In order to deliver individualized financial insights 
 for improved financial planning, the app examines user spending trends]
