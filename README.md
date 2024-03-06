@@ -1,7 +1,7 @@
 # mobileapplication
 This repository is going to be about creating a mobile banking application
 
-GitHub Submission Template: Group Division (Phase I) # Team Information
+(Phase I) Team Information
 ## Team Name: TechPro
 
 ## Team Leader:
