@@ -16,7 +16,7 @@ This repository is going to be about creating a mobile banking application
 
 # Project Details
 
-## Project Title: AlbBank
+## Title: AlbBank
 
 ## Problem Statement:
 The reason why we're doing this project is to create the user experience with better features by managing their accounts,
