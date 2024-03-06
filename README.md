@@ -50,7 +50,7 @@ Since Klaudia Ismailaj is the team leader, she will be monitoring the process of
 2. Livja Murataj - Mobile App Developer, Backend Developer
 3. Alma Mahmutaj - UI/UX Designer, Financial Analyst
 
-##Tasks:
+## Tasks:
 1. Mobile Developer - Developing the application for IOS users.
 2. Quality Assurance - Identifying any errors of application and checking its security.
 3. Backend Developer - Creation of communication between the app and the server by API.
