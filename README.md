@@ -39,6 +39,7 @@ It provides a safe and easy-to-use platform for tracking transactions in real ti
 managing accounts, and creating budgets. In order to deliver individualized financial insights 
 for improved financial planning, the app examines user spending trends
 
+
 # Roles and Tasks Distribution
 
 ## Team Leader:
