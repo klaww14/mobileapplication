@@ -20,7 +20,7 @@ This repository is going to be about creating a mobile banking application
 
 ## Problem Statement:
 The reason why we're doing this project is to create the user experience with better features by managing their accounts,
-track expenses, investments and easily accessing the financial records.
+track expenses, investments and easily accessing the financial records. 
 
 ## Solution Proposed:
 Our team wants to develop this mobile banking application by offering special tools for account managament, transaction tracking,
