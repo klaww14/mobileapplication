@@ -1,0 +1,127 @@
+1. Chosen Development Model:
+* Development Model: Agile
+* Justification: Agile is chosen for its flexibility and adaptability to changes in project requirements, 
+which is crucial in the dynamic environment of mobile app development.
+
+2. User Requirements:
+a. Stakeholders:
+* End-users: Customers using the mobile banking application for managing their finances.
+* Clients: The bank or financial institution commissioning the project.
+* Developers: The team responsible for designing, developing, and maintaining the application.
+* Other relevant parties: Regulatory bodies, security experts, third-party service providers.
+
+Roles and Interests:
+* End-users: Interested in a user-friendly interface, secure transactions, 
+and easy access to financial services.
+* Clients: Interested in enhancing customer experience, 
+increasing user adoption, and ensuring regulatory compliance.
+* Developers: Interested in delivering a high-quality, secure,
+and feature-rich application within the specified timeline and budget.
+
+b. User Stories:
+* User Type: End-user
+* Requirement: Users should be able to securely log in to
+their accounts using biometric authentication (fingerprint or facial recognition).
+* Benefit: Enhanced security and convenience for users during login process.
+
+* User Type: Administrator
+* Requirement: Administrators should have the ability to manage user accounts, 
+including adding, modifying, or removing user access privileges.
+* Benefit: Improved administrative control and security management within the application.
+
+3. Functional Requirements:
+a. Brief Description:
+* Users should be able to transfer funds between their accounts.
+* Users should be able to view their transaction history and account balances.
+* Users should receive notifications for account activities such as deposits, withdrawals, or account updates.
+
+b. Acceptance Criteria:
+* Funds transfer functionality should allow users to select 
+source and destination accounts, enter the amount, and execute the transfer successfully.
+* Transaction history should display detailed information including 
+date, time, amount, transaction type, and involved accounts.
+* Notification system should deliver real-time alerts to users via push notifications or email.
+
+4. Non-Functional Requirements:
+a. Brief Description:
+* The application should ensure high security standards to protect user data and transactions.
+* The application should provide fast response times to user interactions for a seamless experience.
+* The application should be compatible with multiple devices and screen sizes to cater to a diverse user base.
+
+b. Acceptance Criteria:
+* Security measures should include end-to-end encryption, two-factor authentication, and regular security audits.
+* Response time for user actions such as account login or 
+transaction execution should be within 2 seconds.
+* The application should support Android and iOS platforms, 
+ensuring consistent functionality across different devices.
+
+5. Application Specifications:
+a. Architecture:
+* High-level overview of the client-server architecture, including 
+components like front-end (mobile app), back-end (server), and database.
+
+b. Database Model:
+* Detailed schema of the database structure, including 
+tables for user accounts, transactions, and authentication.
+
+c. Technologies Used:
+* Explanation of technologies such as React Native for cross-platform 
+mobile development, Node.js for server-side scripting, and MySQL for database management.
+
+d. User Interface Design:
+* Showcase of wireframes or mockups depicting the user interface design, emphasizing simplicity and usability.
+
+e. Security Measures:
+* Discussion on implemented security measures, including SSL encryption for 
+data transmission, secure storage of user credentials, and token-based authentication.
+This second phase provides a detailed plan for the development of the mobile banking application, 
+focusing on user requirements, functional and non-functional requirements, 
+application specifications, and security measures. Five techniques can secure our mobile
+banking application experience in the best possible way.
+
+1. Two-Factor Authentication or OTP
+As username password authentication is not a secure method of signing in. It must go for 2-
+Factor authentication or One Time Password (OTP) during account sign in. In 2-FA or OTP a
+code is sent to the user&#39;s mobile number or email after verifying username and password.
+After the verification of the code, the user is permitted to enter the account. If a criminal
+has access to the user&#39;s username and password, he will not be allowed to sign in because
+he has to provide the code that was sent to the actual user&#39;s mobile or email. This
+authentication method is very difficult to bypass for cybercriminals.
+
+2. KYC solution
+Biometric Identity Verification
+Users are verified through thumb or facial verification. Biometric verification is the most
+secure method of user onboarding, and it is well appreciated by users also. Also, voice
+verification comes into play in increasingly more cases.
+
+Document Verification
+The name, age and address is verified through document verification. Tempered, modified
+or photoshopped documents are not accepted for verification. A user must provide his
+authentic documents to get himself verified.
+
+Consent Verification
+The most advanced method to secure big transactions is consent verification. The user just
+has to upload the picture of himself holding the consent.
+
+3. SMS or Push Notifications
+AlbBank can send push notifications through apps or send SMS to the registered phone
+number on every transaction. It enables our app to send the daily account report to the user
+by notifications. Through this, a user gets informed about every activity on his account. It is
+an old service but still provides a security layer to the mobile account.
+
+4. End-to-End Encryption
+This is a type of communication in which only communicating users can have access to data.
+The communication is encrypted and no third party like internet provider,
+telecommunication service providers or even the medium used for communication can have
+the access to cryptographic keys. Without those keys, it is almost impossible for
+cybercriminals to access the communion between mobile banking entities.
+
+5. Behaviour tracking
+Another important thing is to implement ongoing behaviour tracking on our app. Such data
+can be used for future decision making like improving UI/UX design, which is a secure
+method of authentication for the prevention of frauds.
+The tracking includes:
+o ﻿﻿Movements and touches
+o ﻿﻿Activity log
+o ﻿﻿Apps host operating systems and gadgets
+o ﻿﻿User actions
