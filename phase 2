@@ -64,6 +64,7 @@ b. Database Model:
 * Detailed schema of the database structure, including 
 tables for user accounts, transactions, and authentication.
 
+
 c. Technologies Used:
 * Explanation of technologies such as React Native for cross-platform 
 mobile development, Node.js for server-side scripting, and MySQL for database management.
