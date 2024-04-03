@@ -35,7 +35,7 @@ Sequence diagrams would show the flow of interactions between different componen
 For instance, a sequence diagram for logging in would depict the steps involved, such as sending a request to the authentication server, verifying credentials, and returning a response to the user interface. 
 
 
-![w(1)](https://github.com/klaww14/mobileapplication/assets/162194459/8c727dc8-f5f8-417a-aeee-649666b5ffc5)
+
 
 
 - Database Design: 
