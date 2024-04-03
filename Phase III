@@ -1,0 +1,73 @@
+Phase III: Software Design and Modeling 
+
+Project Title: Mobile Banking Application 
+
+ 
+
+- System Architecture: 
+
+The mobile banking application acts as an interface for users to access their bank accounts, perform transactions, and manage their finances. 
+
+It interacts with various backend systems such as authentication servers, banking databases, payment gateways, and notification services to provide functionalities like account management, fund transfers, bill payments, and transaction history retrieval. 
+
+ 
+
+- Component Diagram: 
+
+The component diagram would illustrate different parts of the mobile banking application such as the user interface components (login screen, account dashboard, transaction history), business logic components (transaction processing, authentication), and external services/components (banking API, payment gateway). 
+
+
+
+
+- Class Diagram: 
+
+The class diagram would depict the various classes in the application such as User, Account, Transaction, AuthenticationManager, PaymentGateway, etc., along with their attributes and methods. 
+
+For example, the User class may have attributes like username, password, and methods like login(), logout(). The Transaction class may have attributes like amount, date, and methods like processTransaction(). 
+
+
+
+
+- Sequence Diagrams: 
+
+Sequence diagrams would show the flow of interactions between different components/classes to accomplish tasks such as logging in, transferring funds, or checking account balance. 
+
+For instance, a sequence diagram for logging in would depict the steps involved, such as sending a request to the authentication server, verifying credentials, and returning a response to the user interface. 
+
+
+
+- Database Design: 
+
+The database design would include tables such as User, Account, Transaction, etc., with appropriate relationships (e.g., one-to-many between User and Account). 
+
+It would ensure data integrity, efficiency, and security, with features like encryption for sensitive information and indexes for faster retrieval. 
+
+ 
+
+ 
+
+- Use Case Diagram: 
+
+The use case diagram would outline the different actions that users can perform, such as logging in, viewing account balance, transferring funds, paying bills, etc. 
+
+Each use case would represent a specific functionality of the mobile banking application. 
+
+ 
+ 
+
+- Activity Diagrams: 
+
+Activity diagrams would illustrate the flow of activities involved in completing tasks like transferring funds or paying bills. 
+
+They would show the steps users take and the system's responses at each step, including error handling and alternate paths. 
+
+
+
+
+- State Diagrams: 
+
+State diagrams would depict the various states that objects/entities can be in, such as the user session state (logged in, logged out), transaction status (pending, completed), etc. 
+
+They would illustrate how the application transitions between these states based on user actions or system events. 
+
+ 
