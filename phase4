@@ -1,0 +1,386 @@
+1.	Introduction to Testing:
+ o	Software testing is the process of evaluating our mobile banking application
+to identify defects or bugs that may affect its functionality, security, or usability.
+ o	Testing is crucial in the mobile banking development of our application,
+to ensure reliability, security, and correctness, as any software malfunction can have
+significant financial or security implications for users.
+ o	The mobile banking application is set to adhere to strict regulatory standards
+and compliance requirements set forth by our financial authorities.
+Testing ensures that the application meets the standards, safeguarding against legal penalties and ensuring user trust.
+ o	Beyond functionality, our mobile banking app must perform efficiently,
+especially under peak load conditions. Performance testing evaluates 
+factors like response time, throughput, and resource utilization that are used 
+to ensure that our application can handle concurrent user interactions without slowdowns or crashes.
+
+
+2.	Purpose of Testing:
+  o	Testing is crucial in our mobile banking app development to ensure flawless operation,
+top performance, and robust security. We rigorously test to uncover defects, protecting 
+against breaches and fraud, maintaining user trust and financial security. 
+  o	Early defect detection allows us to fix issues before they affect users, 
+ensuring seamless and secure functionality. Our dedication to testing enhances user 
+experience and solidifies our reputation as a trusted financial institution.
+  o	Compliance with regulations is essential in banking. Thorough testing ensures we meet 
+standards, reducing the risk of penalties and legal issues, while maintaining 
+top-notch software quality, security, and privacy.
+  o	In essence, by prioritizing comprehensive testing throughout our development 
+lifecycle, we can confidently deliver a mobile banking application that not 
+only meets the needs of our users but also aligns with industry standards and 
+regulatory requirements, reinforcing our commitment to excellence in banking technology.
+
+
+3.	Focus on Testing a Single Component:
+  o	We choose a critical component of the mobile banking application
+to test, such as the authentication system or transaction processing module.
+  o	The testing of this component is done vital due to its role in ensuring the
+security and integrity of our user data, as well as its impact on the overall functionality of the application.
+  o	Testing examines how the authentication system handles various error scenarios,
+such as incorrect passwords, expired sessions, and multiple failed login attempts. 
+Proper error handling ensures that users receive clear and informative messages,
+preventing confusion and enhancing the overall user experience.
+  o	Since the authentication system interacts with other components of 
+our mobile banking application, such as user profiles, account information, 
+and transaction processing, integration testing is crucial. It ensures seamless 
+communication and data exchange between the authentication system and other modules,
+maintaining overall system functionality.
+
+4.	Preparing Test Cases:
+  o	Our team prepares test cases to cover various scenarios, including normal user 
+interactions (e.g., logging in, transferring funds), edge cases (e.g., low network connectivity), 
+and invalid inputs (e.g., incorrect password).
+  o	Test cases are used to address security concerns, such as verifying encryption 
+protocols and handling authentication failures.
+  o	The application is tested thoroughly to find out how our system behaves 
+under all possible input conditions. A clear understanding of software functions 
+and the testing process can make writing tests that identify defects easier.
+  o	These test cases ensure that our database meets its functional 
+and non-functional requirements. They make sure database management systems (DBMS) support all of our business requirements.
+
+5.	Choosing Testing Frameworks:
+  o	Testing framework is essential when considering the requirements and 
+constraints of the application, such as the platform, the type of application,
+the programming language preference, and the testing requirements.
+  o	For our mobile banking application it is developed in the language Swift 
+which is essentially for iOS users and the testing is done by XCtest.
+  o	We also used some of the open source tools to enable us  cost-effective testing solutions.
+
+  6.	Writing Test Code + 7. Running tests:
+Test codes are used to validate the functionality and the security 
+of our banking application’s components. Test methods are to simulate 
+user with the authentication system, such as logging in with valid and 
+invalid credentials, initiating transactions, and managing user sessions. The ones we have chosen are:
+
+Authentication:
+
+import XCTest
+class AuthenticationUITests: XCTestCase {
+    var app: XCUIApplication!
+    override func setUpWithError() throws {
+        continueAfterFailure = false
+        app = XCUIApplication()
+        app.launch()
+    }
+        func testSuccessfulLogin() throws {
+        // Input valid username and password
+        let usernameTextField = app.textFields["Username"]
+        usernameTextField.tap()
+        usernameTextField.typeText("example_user")
+        let passwordTextField = app.secureTextFields["Password"]
+        passwordTextField.tap()
+        passwordTextField.typeText("password")
+        // Tap on the login button
+        app.buttons["Login"].tap()
+        // Check if the welcome message is displayed
+        XCTAssertTrue(app.staticTexts["Welcome, example_user!"].exists)
+    }
+    func testInvalidLogin() throws {
+        // Input invalid username and password
+        let usernameTextField = app.textFields["Username"]
+        usernameTextField.tap()
+        usernameTextField.typeText("invalid_user")
+        let passwordTextField = app.secureTextFields["Password"]
+        passwordTextField.tap()
+        passwordTextField.typeText("invalid_password")
+        // Tap on the login button
+        app.buttons["Login"].tap()
+        // Check if the error message is displayed
+        XCTAssertTrue(app.staticTexts["Invalid username or password"].exists)
+    }
+    func testEmptyFields() throws {
+        // Leave username and password fields empty
+        app.buttons["Login"].tap()
+        // Check if appropriate error messages are displayed
+        XCTAssertTrue(app.staticTexts["Username cannot be empty"].exists)
+        XCTAssertTrue(app.staticTexts["Password cannot be empty"].exists)
+    }
+}
+
+This code includes three test methods:
+testSuccessfulLogin(): Tests a successful login scenario by inputting valid 
+username and password and verifying that the welcome message is displayed.
+testInvalidLogin(): Tests an invalid login scenario by inputting incorrect 
+username and password and verifying that the error message is displayed.
+testEmptyFields(): Tests the scenario where both username and password fields 
+are left empty and verifies that appropriate error messages are displayed.
+
+Transaction:
+
+import XCTest
+class TransactionUITests: XCTestCase {
+      var app: XCUIApplication!
+     override func setUpWithError() throws {
+        continueAfterFailure = false
+        app = XCUIApplication()
+        app.launch()
+    } 
+    func testSuccessfulTransaction() throws {
+        // Assume the user is already logged in
+        // Input recipient account, amount, and confirmation PIN
+        let recipientTextField = app.textFields["Recipient"]
+        recipientTextField.tap()
+        recipientTextField.typeText("recipient_account")
+        let amountTextField = app.textFields["Amount"]
+        amountTextField.tap()
+        amountTextField.typeText("100")
+        let pinTextField = app.secureTextFields["PIN"]
+        pinTextField.tap()
+        pinTextField.typeText("1234")
+        // Tap on the transfer button
+        app.buttons["Transfer"].tap()
+        // Check if the success message is displayed
+        XCTAssertTrue(app.staticTexts["Transaction successful"].exists)
+    }
+    func testInsufficientFunds() throws {
+        // Assume the user is already logged in
+        // Input recipient account, amount exceeding available balance, and confirmation PIN
+        let recipientTextField = app.textFields["Recipient"]
+        recipientTextField.tap()
+        recipientTextField.typeText("recipient_account")
+        let amountTextField = app.textFields["Amount"]
+        amountTextField.tap()
+        amountTextField.typeText("10000") // Assuming available balance is less than this amount
+        let pinTextField = app.secureTextFields["PIN"]
+        pinTextField.tap()
+        pinTextField.typeText("1234")
+        // Tap on the transfer button
+        app.buttons["Transfer"].tap()
+        // Check if the error message for insufficient funds is displayed
+        XCTAssertTrue(app.staticTexts["Insufficient funds"].exists)
+    }
+    func testInvalidPIN() throws {
+        // Assume the user is already logged in
+        // Input recipient account, amount, and invalid confirmation PIN
+        let recipientTextField = app.textFields["Recipient"]
+        recipientTextField.tap()
+        recipientTextField.typeText("recipient_account")
+        let amountTextField = app.textFields["Amount"]
+        amountTextField.tap()
+        amountTextField.typeText("100")
+        let pinTextField = app.secureTextFields["PIN"]
+        pinTextField.tap()
+        pinTextField.typeText("0000") // Assuming this PIN is invalid
+        
+        // Tap on the transfer button
+        app.buttons["Transfer"].tap()
+        // Check if the error message for invalid PIN is displayed
+        XCTAssertTrue(app.staticTexts["Invalid PIN"].exists)
+    }
+}
+
+This code includes three test methods:
+testSuccessfulTransaction(): Tests a successful fund transfer scenario by
+inputting a valid recipient account, amount, and confirmation PIN and verifying that the success message is displayed.
+testInsufficientFunds(): Tests a scenario where the user attempts to 
+transfer funds exceeding the available balance and verifies that the error 
+message for insufficient funds is displayed.
+testInvalidPIN(): Tests a scenario where the user inputs an invalid confirmation
+PIN and verifies that the error message for an invalid PIN is displayed.
+
+
+Login:
+
+import XCTest
+class LoginUITests: XCTestCase {
+    var app: XCUIApplication!
+    override func setUpWithError() throws {
+        continueAfterFailure = false
+        app = XCUIApplication()
+        app.launch()
+    }
+    func testSuccessfulLogin() throws {
+        // Input valid username and password
+        let usernameTextField = app.textFields["Username"]
+        usernameTextField.tap()
+        usernameTextField.typeText("example_user")
+        let passwordTextField = app.secureTextFields["Password"]
+        passwordTextField.tap()
+        passwordTextField.typeText("password")
+        // Tap on the login button
+        app.buttons["Login"].tap()
+        
+        // Check if the welcome message is displayed
+        XCTAssertTrue(app.staticTexts["Welcome, example_user!"].exists)
+    }
+    func testInvalidLogin() throws {
+        // Input invalid username and password
+        let usernameTextField = app.textFields["Username"]
+        usernameTextField.tap()
+        usernameTextField.typeText("invalid_user")
+        let passwordTextField = app.secureTextFields["Password"]
+        passwordTextField.tap()
+        passwordTextField.typeText("invalid_password")
+        // Tap on the login button
+        app.buttons["Login"].tap()
+        // Check if the error message is displayed
+        XCTAssertTrue(app.staticTexts["Invalid username or password"].exists)
+    }
+    func testEmptyFields() throws {
+        // Leave username and password fields empty
+        app.buttons["Login"].tap()
+        // Check if appropriate error messages are displayed
+        XCTAssertTrue(app.staticTexts["Username cannot be empty"].exists)
+        XCTAssertTrue(app.staticTexts["Password cannot be empty"].exists)
+    }
+}
+This code includes three test methods:
+testSuccessfulLogin(): Tests a successful login scenario by inputting a 
+valid username and password and verifying that the welcome message is displayed.
+testInvalidLogin(): Tests an invalid login scenario by inputting incorrect 
+username and password and verifying that the error message is displayed.
+testEmptyFields(): Tests the scenario where both username and password fields 
+are left empty and verifies that appropriate error messages are displayed.
+
+
+
+
+
+encryption protocol and authentication failures:
+
+import XCTest
+class SecurityUITests: XCTestCase {
+    var app: XCUIApplication!
+    override func setUpWithError() throws {
+        continueAfterFailure = false
+        app = XCUIApplication()
+        app.launch()
+    )
+    func testEncryptionProtocol() throws {
+        // Check if encryption protocol is applied
+        XCTAssertTrue(app.staticTexts["AES-256 Encryption"].exists)
+    }
+    func testAuthenticationFailure() throws {
+        // Input valid username and incorrect password
+        let usernameTextField = app.textFields["Username"]
+        usernameTextField.tap()
+        usernameTextField.typeText("example_user")
+        let passwordTextField = app.secureTextFields["Password"]
+        passwordTextField.tap()
+        passwordTextField.typeText("incorrect_password")
+        // Tap on the login button
+        app.buttons["Login"].tap()
+        // Check if the error message for authentication failure is displayed
+        XCTAssertTrue(app.staticTexts["Authentication failed"].exists)
+    }
+}
+
+This code includes two test methods:
+testEncryptionProtocol(): Tests if the encryption protocol applied to
+sensitive user data is correctly implemented. Here, we assume that the mobile
+banking application displays information about the encryption protocol used, such as "AES-256 Encryption". 
+testAuthenticationFailure(): Tests a scenario where the user inputs
+a valid username but an incorrect password, and verifies that the error message for authentication failure is displayed. 
+
+
+
+
+
+
+
+
+
+
+Edge cases (low network connectivity):
+
+import XCTest
+class EdgeCasesUITests: XCTestCase {
+    var app: XCUIApplication!
+    override func setUpWithError() throws {
+        continueAfterFailure = false
+        app = XCUIApplication()
+        app.launch()
+    }
+    func testEdgeCaseLowNetworkConnectivity() throws {
+        // Simulate low network connectivity
+                app.buttons["Login"].tap()
+        // Check if the error message for low network connectivity is displayed
+        XCTAssertTrue(app.staticTexts["Network connection is unstable"].exists)
+    }
+    func testEdgeCaseLargeTransactionAmount() throws {
+        // Input recipient account, a large amount exceeding typical transaction limits, and confirmation PIN
+        let recipientTextField = app.textFields["Recipient"]
+        recipientTextField.tap()
+        recipientTextField.typeText("recipient_account")
+        let amountTextField = app.textFields["Amount"]
+        amountTextField.tap()
+        amountTextField.typeText("1000000") // Assuming transaction limit is lower than this amount
+        let pinTextField = app.secureTextFields["PIN"]
+        pinTextField.tap()
+        pinTextField.typeText("1234")
+        // Tap on the transfer button
+        app.buttons["Transfer"].tap()
+        // Check if the error message for exceeding transaction limit is displayed
+        XCTAssertTrue(app.staticTexts["Transaction amount exceeds limit"].exists)
+    }}
+This code includes two test methods:
+testEdgeCaseLowNetworkConnectivity(): Tests the scenario where the mobile banking application 
+experiences low network connectivity during a login attempt. The test verifies that the appropriate 
+error message indicating unstable network connectivity is displayed to the user.
+testEdgeCaseLargeTransactionAmount(): Tests the scenario where the user attempts to 
+transfer a large amount of funds exceeding the typical transaction limits. 
+The test verifies that the appropriate error message indicating that the transaction 
+amount exceeds the limit is displayed to the user.
+
+
+
+7.	Test Coverage:
+o	Achieving high test coverage is essential to ensure thorough testing of the mobile banking application.
+o	Aim to cover critical functionalities, security features, 
+and edge cases to minimize the risk of undetected issues impacting users.
+o	Maintaining high test coverage is crucial for thorough testing of the mobile banking application.
+o	Prioritize testing critical functionalities, such as login, 
+account management, and transaction processing, to mitigate the risk of major issues affecting users.
+o	Ensure comprehensive testing of security features to detect 
+vulnerabilities like SQL injection, cross-site scripting, and
+data breaches, safeguarding user data.
+o	Address edge cases, including low battery, poor network connectivity,
+and device compatibility issues, to enhance the application's performance across diverse real-world scenarios.
+o	Integrate testing into the development process from the outset to
+prioritize testing alongside other development activities, ensuring
+comprehensive testing throughout the development lifecycle.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
